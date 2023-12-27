@@ -1,0 +1,24 @@
+{% extends 'admin/index.html' %}
+{% load static %}
+{% block sidebar %}{% endblock %}
+{% block content %}{% endblock %}
+{% block nav-sidebar %}
+<div class="CSTM_change_list">
+    {% if user.is_superuser %}
+        <div class="superAdmin">
+            <ul>
+                <li><a href="{% url 'admin:auth_user_changelist' %}">Users</a></li>
+                <li><a href="{% url 'admin:auth_group_changelist' %}">Groups</a></li>
+            </ul>
+        </div>
+    {% endif %}
+    <div class="modelsList">
+        <ul>
+            <li><a href="{% url 'admin:FocalNest_blogpost_changelist' %}">Blogs</a></li>
+            <li><a href="{% url 'admin:FocalNest_enquiry_changelist' %}">Enquirys</a></li>
+            <li><a href="{% url 'admin:FocalNest_gallery_changelist' %}">Gallery</a></li>
+            <li><a href="{% url 'admin:FocalNest_servicepost_changelist' %}">Services</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
